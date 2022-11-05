@@ -1,0 +1,45 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'
+        classpath "org.jetbrains.kotlin:kotlin-serialization:1.6.21"
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.19'
+
+    }
+}
+
+
+
+ext {
+    supportLibVersion = '33.0.0'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+        maven { url 'https://jitpack.io' }
+
+
+    }
+    project.ext {
+        // these are common variables used in */build.gradle
+        buildToolsVersion="33.0.0"
+        compileSdkVersion=33
+        minSdkVersion=16
+        targetSdkVersion=33
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
